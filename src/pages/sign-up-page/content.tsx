@@ -10,7 +10,7 @@ class SignUpPage extends React.Component {
 
     signUpButton = <button className={styles.signUpButton}>Sign Up</button>
 
-    logIn = <div className={styles.logIn}>Have a account?
+    logIn = <div className={styles.logIn}>Have an account?
     <a className={styles.logInText} href='https://google.com/'>Log In</a>
     </div>
 

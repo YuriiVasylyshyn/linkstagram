@@ -7,7 +7,7 @@ class Header extends React.Component {
 
     button = <button> EN</button>
 
-    body = <div className={styles.mainHeader}> {this.title} {this.button}</div>
+    body = <header className={styles.mainHeader}> {this.title} {this.button}</header>
 
     render() {
         return this.body
