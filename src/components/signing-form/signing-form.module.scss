@@ -1,0 +1,73 @@
+@import "/src/styles/colors.scss";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5%;
+
+    > .title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3em;
+        line-height: 1.5em;
+
+        color: $black;
+    }
+
+    > .input {
+        display: flex;
+        flex-direction: column;
+
+        margin-bottom: 16px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8em;
+        line-height: 20px;
+        color: $darkGray;
+    }
+    .signUpButton {
+        width: 360px;
+        height: 48px;
+
+        background-color: $blue;
+        border-radius: 12px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1em;
+        line-height: 20px;
+
+        border: 0.5px solid $gray;
+        text-align: center;
+        color: $white;
+
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .logIn {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.8em;
+        line-height: 20px;
+
+        text-align: center;
+
+        color: $darkGray;
+    }
+
+    .logInText {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1em;
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+
+        color: $blue;
+
+        margin-left: 12px;
+    }
+}
