@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .mainHeader {
   display: flex;
   justify-content: space-between;
@@ -5,7 +7,7 @@
   align-items: center;
   padding: 24px 64px;
 
-  background: #ffffff;
+  background: $white;
 
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
 }
@@ -13,11 +15,10 @@
 .headerTitle {
   font-style: italic;
   font-weight: 800;
-  font-size: 15.6735px;
-  line-height: 24px;
+  font-size: 1em;
 }
 
-button {
+.languageButton {
   align-items: center;
   text-align: center;
   padding: 10px 12px;
@@ -26,14 +27,14 @@ button {
   width: 40px;
   height: 40px;
 
-  background: #ffffff;
+  background: $white;
 
-  border: 0.5px solid #c9cad1;
+  border: 0.5px solid $gray;
   box-sizing: border-box;
   border-radius: 12px;
 
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 0.8em;
   line-height: 20px;
 }

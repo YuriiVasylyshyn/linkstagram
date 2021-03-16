@@ -1,18 +1,8 @@
-import React from "react";
 import styles from './header.module.scss';
 
-class Header extends React.Component {
-
-    title = <h1 className={styles.headerTitle} > Linkstagram </h1 >
-
-    button = <button> EN</button>
-
-    body = <header className={styles.mainHeader}> {this.title} {this.button}</header>
-
-    render() {
-        return this.body
-    }
-
-}
+const Header = () => <header className={styles.mainHeader}>
+    <h1 className={styles.headerTitle} > Linkstagram </h1 >
+    <button className={styles.languageButton}>EN</button>
+</header>
 
 export default Header

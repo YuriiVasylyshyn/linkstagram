@@ -1,10 +1,17 @@
+@import "../../styles/colors.scss";
+
 .input {
     width: 360px;
     height: 48px;
-    background: #ffffff;
-    border: 1px solid #c9cad1;
+    background: $white;
+    border: 1px solid $gray;
     box-sizing: border-box;
     border-radius: 12px;
     padding: 14px;
     margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 20px;
 }
