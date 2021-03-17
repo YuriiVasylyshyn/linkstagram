@@ -1,12 +1,12 @@
 @import "/src/styles/colors.scss";
 
-.form {
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 5%;
 
-    > .title {
+    .title {
         font-style: normal;
         font-weight: bold;
         font-size: 3em;
@@ -15,7 +15,7 @@
         color: $black;
     }
 
-    > .input {
+    .input {
         display: flex;
         flex-direction: column;
 

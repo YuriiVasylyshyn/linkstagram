@@ -4,7 +4,7 @@ const LanguageButton = () =>
     <button className={styles.languageButton}>EN</button>
 
 const Header = () => <header className={styles.mainHeader}>
-    <h1 className={styles.headerTitle} > Linkstagram </h1>
+    <h1 className={styles.headerTitle} >Linkstagram</h1>
     <LanguageButton />
 </header>
 

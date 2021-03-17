@@ -1,11 +1,11 @@
 @import "../../styles/colors.scss";
 
 .mainHeader {
+  width: 100%;
   display: flex;
+  position: fixed;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
-  padding: 24px 64px;
 
   background: $white;
 
@@ -15,14 +15,15 @@
     font-style: italic;
     font-weight: 800;
     font-size: 1em;
+
+    margin: 24px;
   }
 
   .languageButton {
     align-items: center;
     text-align: center;
-    padding: 10px 12px;
+    padding: 10px;
 
-    position: static;
     width: 40px;
     height: 40px;
 
@@ -32,9 +33,10 @@
     box-sizing: border-box;
     border-radius: 12px;
 
-    font-style: normal;
     font-weight: 600;
     font-size: 0.8em;
     line-height: 20px;
+
+    margin: 24px 64px;
   }
 }
