@@ -4,15 +4,16 @@ import image from '../../assets/images/signup_image.png';
 import SigningForm from '../../components/signing-form/content';
 
 class LoginPage extends Component {
-    render() {
-        return <div className={styles.body}>
-            <div className={styles.content}>
-                <img className={styles.img} src={image} alt=''></img>
-                <SigningForm isSignUp={false} />
-            </div>
-        </div>;
-    }
+  render() {
+    return (
+      <div className={styles.body}>
+        <div className={styles.content}>
+          <img src={image} alt=''></img>
+          <SigningForm isSignUp={false} />
+        </div>
+      </div>
+    );
+  }
 }
 
-export default LoginPage
-
+export default LoginPage;
