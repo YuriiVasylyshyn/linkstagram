@@ -2,6 +2,7 @@ import { Component } from 'react';
 import styles from '../../styles/sign-up.module.scss';
 import image from '../../assets/images/sign-up_image.png';
 import SigningForm from '../../components/signing-form/content';
+import ProfilesRow from '../../components/profiles-row';
 
 class LoginPage extends Component {
   render() {
@@ -10,6 +11,7 @@ class LoginPage extends Component {
         <div className={styles.content}>
           <img src={image} alt=''></img>
           <SigningForm isSignUp={false} />
+          <ProfilesRow />
         </div>
       </div>
     );
