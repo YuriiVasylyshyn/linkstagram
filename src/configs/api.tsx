@@ -1,4 +1,4 @@
-const ApiUrl = 'https://linkstagram-api.ga/api/';
+const ApiUrl = 'https://linkstagram-api.ga/';
 
 const Headers = {
   Accept: 'application/json',
