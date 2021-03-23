@@ -1,6 +1,6 @@
 import * as requests from './api-service';
 
-export function createNewAccount(
+export async function createNewAccount(
   username: string,
   login: string,
   password: string
@@ -11,14 +11,18 @@ export function createNewAccount(
     password: password,
   };
 
-  requests.postRequest('create-account', { body: body });
+  return await requests.postRequest('create-account', { body: body });
 }
 
-export function login(login: string, password: string) {
+export async function login(login: string, password: string) {
   const body = {
     login: login,
     password: password,
   };
 
-  requests.postRequest('login', { body: body });
+  return await requests.postRequest('login', { body: body });
+}
+
+export async function getProfiles() {
+  return await requests.getRequest('profiles');
 }

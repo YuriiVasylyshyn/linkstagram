@@ -1,35 +1,42 @@
-import styles from './style.module.scss';
-import Input from '../input/content';
-import { Link } from 'react-router-dom';
-import Button from '../button/content';
+import { useTypesSelector } from '../../hooks/useTypedSelector';
+import { authAction } from '../../hooks/useActions';
+import React, { useState } from 'react';
+import SigningFormLayout from './index';
 
-type SigningProps = { isSignUp?: boolean };
+const SigningForm: React.FC = () => {
+  const { loading, error } = useTypesSelector((state) => state.auth);
 
-const SigningForm = ({ isSignUp }: SigningProps) => (
-  <form className={styles.form} action=''>
-    <h1 className={styles.title}>{isSignUp ? 'Sign Up' : 'Log In'}</h1>
-    <div className={styles.input}>
-      <span>Email</span>
-      <Input placeHolder='example@mail.com' />
-    </div>
-    {isSignUp ? (
-      <div className={styles.input}>
-        <span>User Name</span>
-        <Input placeHolder='alex example...' />
-      </div>
-    ) : null}
-    <div className={styles.input}>
-      <span>Password</span>
-      <Input placeHolder='Type in...' />
-    </div>
-    <Button title={isSignUp ? 'Sign up' : 'Log in'}></Button>
-    <div className={styles.logIn}>
-      <span>{isSignUp ? 'Have an account?' : 'Don`t have an account?'}</span>
-      <Link className={styles.logInText} to={isSignUp ? '/login' : '/sign-up'}>
-        {isSignUp ? 'Log in' : 'Sign up'}
-      </Link>
-    </div>
-  </form>
-);
+  const { signUp } = authAction();
+
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  if (loading) {
+    return <h1>LOADING</h1>;
+  }
+
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
+  return (
+    <SigningFormLayout
+      onChangeEmail={(e: { target: { value: React.SetStateAction<string> } }) =>
+        setEmail(e.target.value)
+      }
+      onChangePassword={(e: {
+        target: { value: React.SetStateAction<string> };
+      }) => setPassword(e.target.value)}
+      onChangeUsername={(e: {
+        target: { value: React.SetStateAction<string> };
+      }) => setUserName(e.target.value)}
+      onConfirm={() => {
+        console.log(userName, email, password);
+        signUp(userName, email, password);
+      }}
+    ></SigningFormLayout>
+  );
+};
 
 export default SigningForm;

@@ -5,7 +5,7 @@ export enum ProfileActionTypes {
 }
 
 export interface ProfileState {
-  profiles: any[];
+  profiles: Profile[];
   loading: boolean;
   error: null | string;
 }
@@ -15,7 +15,7 @@ interface FetchProfileAction {
 }
 interface FetchProfileSuccessAction {
   type: ProfileActionTypes.FETCH_USERS_SUCCESS;
-  payload: any[];
+  payload: Profile[];
 }
 interface FetchProfileErrorAction {
   type: ProfileActionTypes.FETCH_USERS_ERROR;
