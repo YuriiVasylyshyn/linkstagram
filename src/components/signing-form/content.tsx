@@ -1,42 +1,88 @@
-import { useTypesSelector } from '../../hooks/useTypedSelector';
-import { authAction } from '../../hooks/useActions';
-import React, { useState } from 'react';
-import SigningFormLayout from './index';
+import React from 'react';
 
-const SigningForm: React.FC = () => {
-  const { loading, error } = useTypesSelector((state) => state.auth);
+import styles from './style.module.scss';
 
-  const { signUp } = authAction();
+import { Link } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
-  const [email, setEmail] = useState('');
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+import Button from '../button/content';
+import Input from '../input/index';
 
-  if (loading) {
-    return <h1>LOADING</h1>;
-  }
+const SigningFormLayout: React.FC = () => {
+  const SignUpSchema = Yup.object().shape({
+    username: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Username is required'),
 
-  if (error) {
-    return <h1>{error}</h1>;
-  }
+    email: Yup.string().email().required('Email is required'),
+
+    password: Yup.string()
+      .required('Password is required')
+      .min(6, 'Password is too short - should be 6 chars minimum'),
+  });
 
   return (
-    <SigningFormLayout
-      onChangeEmail={(e: { target: { value: React.SetStateAction<string> } }) =>
-        setEmail(e.target.value)
-      }
-      onChangePassword={(e: {
-        target: { value: React.SetStateAction<string> };
-      }) => setPassword(e.target.value)}
-      onChangeUsername={(e: {
-        target: { value: React.SetStateAction<string> };
-      }) => setUserName(e.target.value)}
-      onConfirm={() => {
-        console.log(userName, email, password);
-        signUp(userName, email, password);
-      }}
-    ></SigningFormLayout>
+    <Formik
+      initialValues={{ email: '', username: '', password: '' }}
+      validationSchema={SignUpSchema}
+      onSubmit={(values) => console.log(JSON.stringify(values, null, 2))}
+    >
+      {({ values, handleChange, handleBlur, handleSubmit }) => (
+        <Form onSubmit={handleSubmit} className={styles.form}>
+          <Input
+            title="Email"
+            type="email"
+            name="email"
+            placeholder="example@mail.com"
+            onChange={handleChange}
+            handleBlur={handleBlur}
+            value={values.email}
+          ></Input>
+          <Input
+            title="User Name"
+            type="text"
+            name="username"
+            placeholder="alex example..."
+            onChange={handleChange}
+            value={values.username}
+          ></Input>
+          <Input
+            title="Password"
+            type="password"
+            name="password"
+            placeholder="Type in..."
+            onChange={handleChange}
+            value={values.password}
+          ></Input>
+          {/* <div className={styles.input}>
+            <span>Password</span>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Type in..."
+              onChange={handleChange}
+              value={values.password}
+              className={styles.field}
+            />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={styles.error}
+            />
+          </div> */}
+          <Button type="submit" title={'Sign up'}></Button>
+          <div className={styles.logIn}>
+            <span>{'Have an account?'}</span>
+            <Link className={styles.logInText} to={'/login'}>
+              Log in
+            </Link>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
-export default SigningForm;
+export default SigningFormLayout;

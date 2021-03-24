@@ -1,6 +1,6 @@
 import styles from '../../styles/sign-up.module.scss';
 import image from '../../assets/images/sign-up_image.png';
-import SigningForm from '../../components/signing-form/content';
+import SigningForm from '../../components/signing-form';
 
 const SignUpLayout = () => (
   <div className={styles.body}>

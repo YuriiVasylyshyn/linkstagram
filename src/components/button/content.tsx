@@ -2,16 +2,18 @@ import styles from './style.module.scss';
 
 type ButtonProps = {
   title: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   className?: string;
-  onClick?: any;
+  onClick?: (e: Object) => {};
 };
 
-const Button = ({ title, className, onClick }: ButtonProps) => (
-  <button
-    type="button"
-    className={className ?? styles.button}
-    onClick={onClick}
-  >
+const Button = ({
+  title,
+  className,
+  onClick,
+  type = 'button',
+}: ButtonProps) => (
+  <button type={type} className={className ?? styles.button} onClick={onClick}>
     {title}
   </button>
 );

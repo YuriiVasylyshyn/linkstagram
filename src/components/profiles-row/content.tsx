@@ -1,8 +1,8 @@
 import styles from './style.module.scss';
 
-type InputProps = { user: Profile };
+type ProfileProps = { user: Profile };
 
-const ProfileRow = ({ user }: InputProps) => (
+const ProfileRow = ({ user }: ProfileProps) => (
   <div className={styles.row}>
     <img
       className={styles.img}

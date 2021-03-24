@@ -1,23 +1,17 @@
-
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import LoginPage from './pages/login-page/content';
-import SignUpPage from './pages/sign-up-page/content';
+import SignUpPage from './pages/sign-up-page/index';
 
-const Router = () =>
-    <> <Redirect from="/" to="/login" />
-        <Switch>
-            <Route
-                path='/login'
-                component={LoginPage}
-            />
+const Router = () => (
+  <>
+    <Switch>
+      <Route path="/login" component={LoginPage} />
 
-            <Route
-                path='/sign-up'
-                component={SignUpPage}
-            />
-            {/* Add new routes here */}
-        </Switch>
-    </>
+      <Route path="/" component={SignUpPage} />
+      {/* Add new routes here */}
+    </Switch>
+  </>
+);
 
-export default Router
+export default Router;

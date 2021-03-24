@@ -12,13 +12,13 @@ export const authReducer = (
 ): AuthState => {
   switch (action.type) {
     case AuthActionTypes.LOGIN:
-      return { loading: true, error: null, result: '' };
+      return { ...state, loading: true };
 
     case AuthActionTypes.SIGN_UP:
-      return { loading: false, error: null, result: '' };
+      return { ...state, loading: true };
 
     case AuthActionTypes.AUTH_SUCCESS:
-      return { loading: false, error: null, result: action.payload };
+      return { ...state, result: action.payload };
 
     case AuthActionTypes.AUTH_ERROR:
       return { loading: false, error: action.payload, result: action.payload };

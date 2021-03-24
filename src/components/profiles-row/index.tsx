@@ -9,10 +9,10 @@ const ProfilesRow: React.FC = () => {
     (state) => state.profile
   );
 
-  const { getUsers } = userAction();
+  // const { getUsers } = userAction();
 
   useEffect(() => {
-    getUsers();
+    // getUsers();
   });
 
   if (loading) {
