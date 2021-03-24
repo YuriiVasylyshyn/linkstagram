@@ -8,7 +8,7 @@ class LoginPage extends Component {
     return (
       <div className={styles.body}>
         <div className={styles.content}>
-          <img src={image} alt=''></img>
+          <img src={image} alt=""></img>
           <SigningForm isSignUp={false} />
         </div>
       </div>
