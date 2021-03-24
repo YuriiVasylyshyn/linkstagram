@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import { ProfileAction, ProfileActionTypes } from '../types/profile';
 
-import * as requests from '../../services/requests-service';
+import * as requests from '../../../services/requests-service';
 
 export const getUsers = () => {
   return async (dispatch: Dispatch<ProfileAction>) => {

@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import { AuthAction, AuthActionTypes } from '../types/auth';
 
-import * as requests from '../../services/requests-service';
+import * as requests from '../../../services/requests-service';
 
 export const signUp = (username: string, login: string, password: string) => {
   return async (dispatch: Dispatch<AuthAction>) => {

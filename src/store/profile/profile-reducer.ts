@@ -2,7 +2,7 @@ import {
   ProfileAction,
   ProfileActionTypes,
   ProfileState,
-} from '../types/profile';
+} from './types/profile';
 
 const initialState: ProfileState = {
   profiles: [],
