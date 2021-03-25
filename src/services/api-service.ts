@@ -7,7 +7,9 @@ export const getRequest = async (url: string) =>
   });
 
 export const postRequest = async (url: string, body: Object) =>
-  await axios.post(ApiUrl + url, body, { headers: Headers });
+  await axios.post(ApiUrl + url, body, {
+    headers: Headers,
+  });
 
 export const deleteRequest = async (url: string) =>
   await axios.delete(ApiUrl + url, {

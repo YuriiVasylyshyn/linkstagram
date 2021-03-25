@@ -13,9 +13,11 @@ export const signUp = (username: string, login: string, password: string) => {
         password
       );
 
+      const data: Success = response.data;
+
       dispatch({
         type: AuthActionTypes.AUTH_SUCCESS,
-        payload: response.data,
+        payload: data.success,
       });
     } catch (e) {
       console.log(e);
@@ -33,9 +35,11 @@ export const login = (login: string, password: string) => {
       dispatch({ type: AuthActionTypes.LOGIN });
       const response = await requests.login(login, password);
 
+      const data: Success = response.data;
+
       dispatch({
         type: AuthActionTypes.AUTH_SUCCESS,
-        payload: response.data,
+        payload: data.success,
       });
     } catch (e) {
       console.log(e);
