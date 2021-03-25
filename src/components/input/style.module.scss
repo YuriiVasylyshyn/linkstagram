@@ -12,6 +12,10 @@
   line-height: 1.25rem;
   color: $darkGray;
 
+  :focus {
+    outline: none;
+  }
+
   .field {
     width: 100%;
     height: 48px;

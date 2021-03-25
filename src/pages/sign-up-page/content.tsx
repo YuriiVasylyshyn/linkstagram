@@ -2,11 +2,19 @@ import styles from '../../styles/sign-up.module.scss';
 import image from '../../assets/images/sign-up_image.png';
 import SigningForm from '../../components/signing-form';
 
-const SignUpLayout = () => (
+type SignUpLayoutProps = {
+  callBack: (values: {
+    email: string;
+    username: string;
+    password: string;
+  }) => {};
+};
+
+const SignUpLayout = ({ callBack }: SignUpLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
       <img src={image} alt=""></img>
-      <SigningForm />
+      <SigningForm callBack={callBack} />
     </div>
   </div>
 );

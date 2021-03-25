@@ -7,12 +7,12 @@ export const getUsers = () => {
   return async (dispatch: Dispatch<ProfileAction>) => {
     try {
       dispatch({ type: ProfileActionTypes.FETCH_USERS });
-      const response = await requests.getProfiles();
+      // const response = await requests.getProfiles();
 
-      dispatch({
+      /*  dispatch({
         type: ProfileActionTypes.FETCH_USERS_SUCCESS,
         payload: response?.data,
-      });
+      }); */
     } catch (e) {
       console.log(e);
       dispatch({

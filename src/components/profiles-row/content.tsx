@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 
 type ProfileProps = { user: Profile };
 
-const ProfileRow = ({ user }: ProfileProps) => (
+const ProfileRow = ({ user }: ProfileProps): JSX.Element => (
   <div className={styles.row}>
     <img
       className={styles.img}
