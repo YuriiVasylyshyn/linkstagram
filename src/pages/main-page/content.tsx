@@ -1,6 +1,8 @@
 import styles from '../../styles/main.module.scss';
+import ProfilesRow from '../../components/profiles-row/index';
 
 type MainLayoutProps = {
+  users: Profile[];
   //   callBack: (values: {
   //     email: string;
   //     username: string;
@@ -11,9 +13,10 @@ type MainLayoutProps = {
 const MainLayout = ({ ...props }: MainLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
-      <div className={styles.storiesLine}></div>
+      <ProfilesRow users={props.users} />
       <div className={styles.postsList}></div>
     </div>
+    <div className={styles.profile}></div>
   </div>
 );
 

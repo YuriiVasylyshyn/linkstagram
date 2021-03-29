@@ -3,7 +3,7 @@ import styles from './style.module.scss';
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 
-import Button from '../button/content';
+import Button from '../button';
 import Input from '../input/index';
 
 import { SignUpSchema } from '../../services/validation';

@@ -3,7 +3,7 @@ import { useTypesSelector } from '../../hooks/useTypedSelector';
 import { signUp } from '../../store/auth/action-creators/auth';
 import SignUpLayout from './content';
 
-const SignUpPage = () => {
+const SignUpPage = (): JSX.Element => {
   const { loading, error } = useTypesSelector((state) => state.auth);
 
   const dispatch = useDispatch();

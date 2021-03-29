@@ -2,21 +2,21 @@
 
 .body {
   width: 100%;
-  height: 100%;
-  background-color: $lightGray;
+  min-height: 100%;
   display: flex;
   justify-content: center;
 
-  .content {
-    width: 30%;
-    height: 100vh;
-    justify-content: space-around;
+  .profile {
+    width: 305px;
+    height: 305px;
+    background-color: $red;
+  }
 
-    .storiesLine {
-      width: 100%;
-      height: 20%;
-      background-color: $blue;
-    }
+  .content {
+    width: 90%;
+    height: max-content;
+    max-width: 560px;
+    justify-content: space-around;
 
     .postsList {
       width: 100%;
@@ -24,9 +24,12 @@
       background-color: $red;
     }
   }
+}
 
-  // .profile {
-  //   width: 20%;
-  //   height: 30%;
-  // }
+@media screen and (max-width: 1024px) {
+  .body {
+    .profile {
+      display: none;
+    }
+  }
 }

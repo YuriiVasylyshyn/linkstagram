@@ -1,35 +1,20 @@
-import React, { useEffect } from 'react';
-import { userAction } from '../../hooks/useActions';
-import { useTypesSelector } from '../../hooks/useTypedSelector';
+import styles from './style.module.scss';
 
-import ProfileRow from './content';
+type ProfileProps = { users: Profile[] };
 
-const ProfilesRow: React.FC = () => {
-  const { profiles, loading, error } = useTypesSelector(
-    (state) => state.profile
-  );
+const ProfileRow = ({ users }: ProfileProps): JSX.Element => (
+  <div className={styles.row}>
+    {users.map((user, index) =>
+      user.profile_photo_url != null ? (
+        <img
+          key={index}
+          className={styles.img}
+          src={user.profile_photo_url}
+          alt={user.first_name}
+        />
+      ) : null
+    )}
+  </div>
+);
 
-  // const { getUsers } = userAction();
-
-  useEffect(() => {
-    // getUsers();
-  });
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
-
-  return (
-    <>
-      {profiles.map((profile) => (
-        <ProfileRow user={profile} />
-      ))}
-    </>
-  );
-};
-
-export default ProfilesRow;
+export default ProfileRow;
