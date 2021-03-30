@@ -26,3 +26,7 @@ export const login = (login: string, password: string) => {
 export const getProfiles = () => {
   return requests.getRequest('profiles');
 };
+
+export const getPosts = () => {
+  return requests.getRequest('posts');
+};

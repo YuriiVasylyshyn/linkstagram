@@ -5,6 +5,7 @@ import Post from '../../components/post/index';
 
 type MainLayoutProps = {
   users: Profile[];
+  posts: Post[];
   //   callBack: (values: {
   //     email: string;
   //     username: string;
@@ -12,14 +13,14 @@ type MainLayoutProps = {
   //   }) => {};
 };
 
-const MainLayout = ({ ...props }: MainLayoutProps): JSX.Element => (
+const MainLayout = ({ users, posts }: MainLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
-      <ProfilesRow users={props.users} />
+      <ProfilesRow users={users} />
       <div className={styles.postsList}>
-        <Post />
-        <Post />
-        <Post />
+        {posts.map((post, index) => (
+          <Post post={post} key={index} />
+        ))}
       </div>
     </div>
     <ProfileBloc />

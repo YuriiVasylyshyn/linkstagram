@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { UserAction } from '../../hooks/useActions';
+import { UserAction, PostsAction } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import MainLayout from './content';
 
@@ -8,21 +8,25 @@ const MainPage = (): JSX.Element => {
     (state) => state.profile
   );
 
+  const postsState = useTypesSelector((state) => state.posts);
+
   const { getUsers } = UserAction();
+  const { getPosts } = PostsAction();
 
   useEffect(() => {
     getUsers();
+    getPosts();
   }, []);
 
-  if (loading) {
+  if (loading || postsState.loading) {
     return <h1>Loading...</h1>;
   }
 
-  if (error) {
+  if (error || postsState.error) {
     return <h1>{error}</h1>;
   }
 
-  return <MainLayout users={profiles} />;
+  return <MainLayout users={profiles} posts={postsState.posts} />;
 };
 
 export default MainPage;

@@ -2,14 +2,14 @@ import styles from './style.module.scss';
 
 type PostActionProps = {
   image?: string;
-  title?: string;
+  title?: number;
 };
 
 const PostAction = ({ ...props }: PostActionProps): JSX.Element => {
   return (
     <button type="button" className={styles.body}>
       <img src={props.image} alt="" />
-      {props.title ?? '12321'}
+      {props.title ?? 0}
     </button>
   );
 };
