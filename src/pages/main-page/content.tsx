@@ -1,5 +1,6 @@
 import styles from '../../styles/main.module.scss';
 import ProfilesRow from '../../components/profiles-row/index';
+import ProfileBloc from '../../components/profile-bloc/index';
 
 type MainLayoutProps = {
   users: Profile[];
@@ -16,7 +17,7 @@ const MainLayout = ({ ...props }: MainLayoutProps): JSX.Element => (
       <ProfilesRow users={props.users} />
       <div className={styles.postsList}></div>
     </div>
-    <div className={styles.profile}></div>
+    <ProfileBloc />
   </div>
 );
 

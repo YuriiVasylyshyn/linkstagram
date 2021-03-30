@@ -1,0 +1,99 @@
+@import '/src/styles/colors.scss';
+
+.bloc {
+  width: 305px;
+  height: 305px;
+
+  margin-left: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  .header {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+
+      margin: 0 1rem;
+      border: 3px solid $blue;
+
+      border-radius: 1rem;
+
+      filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.5));
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+
+      .count {
+        font-weight: bold;
+      }
+      .title {
+        font-weight: 500;
+        color: $gray;
+      }
+    }
+  }
+  .body {
+    width: 100%;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    .description {
+      color: $gray;
+      font-size: 0.75rem;
+    }
+  }
+  .buttonRow {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    button {
+      width: 40%;
+      border: none;
+      border-radius: 0.5rem;
+
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 1.25rem;
+
+      padding: 0.6rem;
+    }
+
+    .edit {
+      margin-right: 6px;
+      background-color: $white;
+    }
+
+    .post {
+      margin-left: 6px;
+      background-color: $blue;
+
+      color: $white;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bloc {
+    display: none;
+  }
+}

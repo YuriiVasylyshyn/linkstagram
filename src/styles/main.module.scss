@@ -6,12 +6,6 @@
   display: flex;
   justify-content: center;
 
-  .profile {
-    width: 305px;
-    height: 305px;
-    background-color: $red;
-  }
-
   .content {
     width: 90%;
     height: max-content;
@@ -22,14 +16,6 @@
       width: 100%;
       height: 80vh;
       background-color: $red;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .body {
-    .profile {
-      display: none;
     }
   }
 }
