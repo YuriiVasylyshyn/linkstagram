@@ -1,0 +1,52 @@
+@import '/src/styles/colors.scss';
+
+form {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .content {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    .logIn {
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 1.25rem;
+
+      text-align: center;
+
+      color: $darkGray;
+    }
+
+    .logInText {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      text-align: center;
+      text-decoration: none;
+
+      color: $blue;
+
+      margin-left: 0.75rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  form {
+    height: 80vh;
+    justify-content: space-between;
+    .footer {
+      button {
+        order: 1;
+      }
+    }
+  }
+}

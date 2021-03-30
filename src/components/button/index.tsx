@@ -1,20 +1,20 @@
 import styles from './style.module.scss';
 
 type ButtonProps = {
-  title: string;
+  content?: string | Element;
   type?: 'button' | 'submit' | 'reset' | undefined;
   className?: string;
   onClick?: (e: Object) => {};
 };
 
 const Button = ({
-  title,
+  content,
   className,
   onClick,
   type = 'button',
 }: ButtonProps) => (
   <button type={type} className={className ?? styles.button} onClick={onClick}>
-    {title}
+    {content}
   </button>
 );
 

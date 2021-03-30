@@ -5,7 +5,7 @@ type ProfileBlocProps = {
   user?: Profile;
 };
 
-const ProfileBloc = ({ ...props }: ProfileBlocProps): JSX.Element => {
+const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
   return (
     <div className={styles.bloc}>
       <div className={styles.header}>
@@ -21,7 +21,7 @@ const ProfileBloc = ({ ...props }: ProfileBlocProps): JSX.Element => {
         </div>
       </div>
       <div className={styles.body}>
-        <span>Yura Vasylyshyn - ASDASdasd</span>
+        <span>Yura Vasylyshyn - React developer</span>
         <br />
         <span className={styles.description}>
           Like to travel and shoot cinematic and b/w photos Tools - Capture One
@@ -30,12 +30,12 @@ const ProfileBloc = ({ ...props }: ProfileBlocProps): JSX.Element => {
       </div>
       <div className={styles.buttonRow}>
         <Button
-          title={'Edit profile'}
+          content={'Edit profile'}
           type="button"
           className={styles.edit}
         ></Button>
         <Button
-          title={'New post'}
+          content={'New post'}
           type="button"
           className={styles.post}
         ></Button>

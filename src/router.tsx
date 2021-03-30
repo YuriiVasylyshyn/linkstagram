@@ -11,7 +11,7 @@ const Router = () => (
 
       <Route path="/sign-up" component={SignUpPage} />
 
-      <Route path="/" component={MainPage} />
+      <Route path="/main" component={MainPage} />
       {/* Add new routes here */}
     </Switch>
   </>

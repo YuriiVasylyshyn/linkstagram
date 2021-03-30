@@ -8,9 +8,9 @@ const Header = ({ isMainPage }: HeaderProps) => (
     <h1 className={styles.headerTitle}>Linkstagram</h1>
     <div className={styles.rightSide}>
       {isMainPage ? (
-        <Button title="Home" className={styles.homeButton} />
+        <Button content="Home" className={styles.homeButton} />
       ) : null}
-      <Button title="EN" className={styles.languageButton} />
+      <Button content="EN" className={styles.languageButton} />
     </div>
   </header>
 );
