@@ -6,24 +6,20 @@ import Post from '../../components/post/index';
 type MainLayoutProps = {
   users: Profile[];
   posts: Post[];
-  //   callBack: (values: {
-  //     email: string;
-  //     username: string;
-  //     password: string;
-  //   }) => {};
+  user: Profile;
 };
 
-const MainLayout = ({ users, posts }: MainLayoutProps): JSX.Element => (
+const MainLayout = ({ users, posts, user }: MainLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
       <ProfilesRow users={users} />
       <div className={styles.postsList}>
         {posts.map((post, index) => (
-          <Post post={post} key={index} />
+          <Post key={index} post={post} />
         ))}
       </div>
     </div>
-    <ProfileBloc />
+    <ProfileBloc user={user} />
   </div>
 );
 

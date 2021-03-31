@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 
 type ButtonProps = {
-  content?: string | Element;
+  content?: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
   className?: string;
   onClick?: (e: Object) => {};
@@ -9,11 +9,11 @@ type ButtonProps = {
 
 const Button = ({
   content,
-  className,
+  className = styles.button,
   onClick,
   type = 'button',
 }: ButtonProps) => (
-  <button type={type} className={className ?? styles.button} onClick={onClick}>
+  <button type={type} className={className} onClick={onClick}>
     {content}
   </button>
 );

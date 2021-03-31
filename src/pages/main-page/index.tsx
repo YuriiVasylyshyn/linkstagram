@@ -3,6 +3,8 @@ import { UserAction, PostsAction } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import MainLayout from './content';
 
+import DataWrapper from '../../services/wrappers/data-wrapper';
+
 const MainPage = (): JSX.Element => {
   const { profiles, loading, error } = useTypesSelector(
     (state) => state.profile
@@ -18,15 +20,19 @@ const MainPage = (): JSX.Element => {
     getPosts();
   }, []);
 
-  if (loading || postsState.loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error || postsState.error) {
-    return <h1>{error}</h1>;
-  }
-
-  return <MainLayout users={profiles} posts={postsState.posts} />;
+  return (
+    <DataWrapper
+      error={error || postsState.error}
+      loading={loading || postsState.loading}
+      page={
+        <MainLayout
+          users={profiles}
+          posts={postsState.posts}
+          user={profiles[8]}
+        />
+      }
+    />
+  );
 };
 
 export default MainPage;

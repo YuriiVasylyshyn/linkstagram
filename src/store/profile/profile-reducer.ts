@@ -6,7 +6,7 @@ import {
 
 const initialState: ProfileState = {
   profiles: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 

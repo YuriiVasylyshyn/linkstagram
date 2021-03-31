@@ -2,7 +2,7 @@ import { AuthAction, AuthActionTypes, AuthState } from './types/auth';
 
 const initialState: AuthState = {
   result: '',
-  loading: false,
+  loading: true,
   error: null,
 };
 

@@ -2,31 +2,37 @@ import styles from './style.module.scss';
 import Button from '../button/index';
 
 type ProfileBlocProps = {
-  user?: Profile;
+  user: Profile;
 };
 
 const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
+  const {
+    profile_photo_url,
+    followers,
+    following,
+    first_name,
+    last_name,
+    job_title,
+    description,
+  }: Profile = user;
+
   return (
     <div className={styles.bloc}>
       <div className={styles.header}>
         <div className={styles.info}>
-          <span className={styles.count}>12 k</span>
-          <span className={styles.title}>Followers</span>
+          <span>{followers}</span>
+          <span>Followers</span>
         </div>
-
-        <img src="http://pngimg.com/uploads/horse/horse_PNG2556.png" alt="" />
+        <img src={profile_photo_url} alt="" />
         <div className={styles.info}>
-          <span className={styles.count}>448</span>
-          <span className={styles.title}>Following</span>
+          <span>{following}</span>
+          <span>Following</span>
         </div>
       </div>
       <div className={styles.body}>
-        <span>Yura Vasylyshyn - React developer</span>
+        <span>{first_name + ' ' + last_name + '-' + job_title}</span>
         <br />
-        <span className={styles.description}>
-          Like to travel and shoot cinematic and b/w photos Tools - Capture One
-          for Raw
-        </span>
+        <span className={styles.description}>{description}</span>
       </div>
       <div className={styles.buttonRow}>
         <Button
