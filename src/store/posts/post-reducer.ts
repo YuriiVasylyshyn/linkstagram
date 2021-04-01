@@ -12,13 +12,13 @@ export const postsReducer = (
 ): PostState => {
   switch (action.type) {
     case PostActionTypes.FETCH_POSTS:
-      return { loading: true, error: null, posts: [] };
+      return { ...state };
 
     case PostActionTypes.FETCH_POSTS_SUCCESS:
-      return { loading: false, error: null, posts: action.payload };
+      return { ...state, loading: false, posts: action.payload };
 
     case PostActionTypes.FETCH_POSTS_ERROR:
-      return { loading: false, error: action.payload, posts: [] };
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

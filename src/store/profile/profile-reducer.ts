@@ -16,13 +16,13 @@ export const profileReducer = (
 ): ProfileState => {
   switch (action.type) {
     case ProfileActionTypes.FETCH_USERS:
-      return { loading: true, error: null, profiles: [] };
+      return { ...state };
 
     case ProfileActionTypes.FETCH_USERS_SUCCESS:
-      return { loading: false, error: null, profiles: action.payload };
+      return { ...state, loading: false, profiles: action.payload };
 
     case ProfileActionTypes.FETCH_USERS_ERROR:
-      return { loading: false, error: action.payload, profiles: [] };
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;
