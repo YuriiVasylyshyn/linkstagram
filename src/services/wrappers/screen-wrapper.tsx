@@ -1,14 +1,14 @@
-type DataWrapperProps = {
+type ScreenWrapperProps = {
   page: JSX.Element;
   error: string | null;
   loading: boolean;
 };
 
-const DataWrapper = ({
+const ScreenWrapper = ({
   page,
   loading,
   error,
-}: DataWrapperProps): JSX.Element => {
+}: ScreenWrapperProps): JSX.Element => {
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -20,4 +20,4 @@ const DataWrapper = ({
   return page;
 };
 
-export default DataWrapper;
+export default ScreenWrapper;

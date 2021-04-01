@@ -3,7 +3,7 @@ import { UserAction, PostsAction } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import MainLayout from './content';
 
-import DataWrapper from '../../services/wrappers/data-wrapper';
+import ScreenWrapper from '../../services/wrappers/screen-wrapper';
 
 const MainPage = (): JSX.Element => {
   const { profiles, loading, error } = useTypesSelector(
@@ -21,7 +21,7 @@ const MainPage = (): JSX.Element => {
   }, []);
 
   return (
-    <DataWrapper
+    <ScreenWrapper
       error={error || postsState.error}
       loading={loading || postsState.loading}
       page={

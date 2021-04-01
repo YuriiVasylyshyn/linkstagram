@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
-import DataWrapper from '../../services/wrappers/data-wrapper';
 import { auth } from '../../store/auth/action-creators/auth';
+
 import SignUpLayout from './content';
+
+import ScreenWrapper from '../../services/wrappers/screen-wrapper';
 
 const SignUpPage = (): JSX.Element => {
   const { loading, error } = useTypesSelector((state) => state.auth);
@@ -10,7 +12,7 @@ const SignUpPage = (): JSX.Element => {
   const dispatch = useDispatch();
 
   return (
-    <DataWrapper
+    <ScreenWrapper
       loading={loading}
       error={error}
       page={
