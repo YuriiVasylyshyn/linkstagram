@@ -18,6 +18,8 @@ const MainPage = (): JSX.Element => {
   useEffect(() => {
     getUsers();
     getPosts();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

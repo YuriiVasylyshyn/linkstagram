@@ -1,3 +1,7 @@
+import Loader from 'react-loader-spinner';
+
+import styles from '../../styles/index.module.scss';
+
 type ScreenWrapperProps = {
   page: JSX.Element;
   error: string | null;
@@ -10,7 +14,11 @@ const ScreenWrapper = ({
   error,
 }: ScreenWrapperProps): JSX.Element => {
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className={styles.loading}>
+        <Loader type="Puff" color="#0087ff" height={150} width={150} />
+      </div>
+    );
   }
 
   if (error) {
