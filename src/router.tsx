@@ -2,7 +2,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import LoginPage from './pages/login-page/index';
 import SignUpPage from './pages/sign-up-page/index';
-import MainPage from './pages/main-page/index';
+import MainPage from './pages/home-page/index';
 
 import * as routes from './configs/routes';
 
@@ -17,7 +17,7 @@ const Router = () => (
 
       <Route path={routes.signUp_page} component={SignUpPage} />
 
-      <Route path={routes.main_page} component={MainPage} />
+      <Route path={routes.home_page} component={MainPage} />
 
       {/* Add new routes here */}
     </Switch>

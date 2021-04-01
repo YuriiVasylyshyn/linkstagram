@@ -1,6 +1,5 @@
-import Loader from 'react-loader-spinner';
-
-import styles from '../../styles/index.module.scss';
+import CircularLoader from '../../components/circular-loader/index';
+import Error from '../../components/error/index';
 
 type ScreenWrapperProps = {
   page: JSX.Element;
@@ -14,15 +13,11 @@ const ScreenWrapper = ({
   error,
 }: ScreenWrapperProps): JSX.Element => {
   if (loading) {
-    return (
-      <div className={styles.loading}>
-        <Loader type="Puff" color="#0087ff" height={150} width={150} />
-      </div>
-    );
+    return <CircularLoader />;
   }
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <Error error={error} />;
   }
 
   return page;

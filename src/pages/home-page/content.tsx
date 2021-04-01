@@ -3,13 +3,13 @@ import ProfilesRow from '../../components/profiles-row/index';
 import ProfileBloc from '../../components/profile-bloc/index';
 import Post from '../../components/post/index';
 
-type MainLayoutProps = {
+type HomeLayoutProps = {
   users: Profile[];
   posts: Post[];
   user: Profile;
 };
 
-const MainLayout = ({ users, posts, user }: MainLayoutProps): JSX.Element => (
+const HomeLayout = ({ users, posts, user }: HomeLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
       <ProfilesRow users={users} />
@@ -23,4 +23,4 @@ const MainLayout = ({ users, posts, user }: MainLayoutProps): JSX.Element => (
   </div>
 );
 
-export default MainLayout;
+export default HomeLayout;

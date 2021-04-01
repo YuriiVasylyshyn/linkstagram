@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { UserAction, PostsAction } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
-import MainLayout from './content';
+import HomeLayout from './content';
 
 import ScreenWrapper from '../../services/wrappers/screen-wrapper';
 
-const MainPage = (): JSX.Element => {
+const HomePage = (): JSX.Element => {
   const { profiles, loading, error } = useTypesSelector(
     (state) => state.profile
   );
@@ -27,7 +27,7 @@ const MainPage = (): JSX.Element => {
       error={error || postsState.error}
       loading={loading || postsState.loading}
       page={
-        <MainLayout
+        <HomeLayout
           users={profiles}
           posts={postsState.posts}
           user={profiles[8]}
@@ -37,4 +37,4 @@ const MainPage = (): JSX.Element => {
   );
 };
 
-export default MainPage;
+export default HomePage;

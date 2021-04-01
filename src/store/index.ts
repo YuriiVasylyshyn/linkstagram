@@ -1,11 +1,16 @@
 import { applyMiddleware, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import { rootReducer } from './reducers';
 import thunk from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga';
-import { helloSaga } from './sagas/saga';
 
-const sagaMiddleWare = createSagaMiddleware();
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// sagaMiddleWare.run(helloSaga);
+export const store = createStore(persistedReducer, applyMiddleware(thunk));
+export const persistor = persistStore(store);

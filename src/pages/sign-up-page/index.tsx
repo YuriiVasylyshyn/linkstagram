@@ -11,6 +11,8 @@ const SignUpPage = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
+  console.log(loading);
+
   return (
     <ScreenWrapper
       loading={loading}
@@ -18,7 +20,7 @@ const SignUpPage = (): JSX.Element => {
       page={
         <SignUpLayout
           callBack={(values) =>
-            dispatch(auth(values.username, values.email, values.password))
+            dispatch(auth(values.email, values.password, values.username))
           }
         />
       }
