@@ -1,19 +1,24 @@
 import styles from './style.module.scss';
+import compare from 'classnames';
 
 type ButtonProps = {
+  type: 'button' | 'submit' | 'reset' | undefined;
   content?: string;
-  type?: 'button' | 'submit' | 'reset' | undefined;
   className?: string;
-  onClick?: (e: Object) => {};
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 const Button = ({
   content,
-  className = styles.button,
+  className,
   onClick,
   type = 'button',
 }: ButtonProps) => (
-  <button type={type} className={className} onClick={onClick}>
+  <button
+    type={type}
+    className={compare(styles.button, className)}
+    onClick={onClick}
+  >
     {content}
   </button>
 );

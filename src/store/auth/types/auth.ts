@@ -1,6 +1,5 @@
 export enum AuthActionTypes {
-  LOGIN = 'FETCH_USERS',
-  SIGN_UP = 'SIGN_UP',
+  AUTH = 'AUTH',
   AUTH_SUCCESS = 'FETCH_USERS_SUCCESS',
   AUTH_ERROR = 'FETCH_USERS_ERROR',
 }
@@ -12,11 +11,11 @@ export interface AuthState {
 }
 
 interface AuthLoginAction {
-  type: AuthActionTypes.LOGIN;
+  type: AuthActionTypes.AUTH;
 }
 
 interface AuthSignUpAction {
-  type: AuthActionTypes.SIGN_UP;
+  type: AuthActionTypes.AUTH;
 }
 
 interface AuthSuccessAction {

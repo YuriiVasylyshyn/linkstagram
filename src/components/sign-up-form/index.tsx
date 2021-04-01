@@ -7,6 +7,9 @@ import Button from '../button';
 import Input from '../input/index';
 
 import { SignUpSchema } from '../../services/validation';
+
+import { login_page } from '../../configs/routes';
+
 type SigningFormProps = {
   callBack: (values: {
     email: string;
@@ -36,7 +39,7 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
               onChange={handleChange}
               handleBlur={handleBlur}
               value={values.email}
-            ></Input>
+            />
             <Input
               title="User Name"
               type="text"
@@ -44,7 +47,7 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
               placeholder="alex example..."
               onChange={handleChange}
               value={values.username}
-            ></Input>
+            />
             <Input
               title="Password"
               type="password"
@@ -52,13 +55,19 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
               placeholder="Type in..."
               onChange={handleChange}
               value={values.password}
-            ></Input>
+            />
           </div>
           <div className={styles.footer}>
-            <Button type="submit" content={'Sign up'}></Button>
+            <Button
+              type="submit"
+              content={'Sign up'}
+              onClick={(e) => {
+                console.log(e);
+              }}
+            ></Button>
             <div className={styles.logIn}>
               <span>{'Have an account?'}</span>
-              <Link className={styles.logInText} to={'/login'}>
+              <Link className={styles.logInText} to={login_page}>
                 Log in
               </Link>
             </div>

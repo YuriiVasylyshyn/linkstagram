@@ -1,3 +1,4 @@
+import compare from 'classnames';
 import { Field, ErrorMessage } from 'formik';
 
 import styles from './style.module.scss';
@@ -10,14 +11,14 @@ type InputProps = {
   placeholder: string;
   onChange: (e: Object) => void;
   handleBlur?: (e: Object) => void;
-  inputStyle?: string;
+  className?: string;
   fieldStyle?: string;
   errorStyle?: string;
 };
 
 const Input = ({ ...props }: InputProps): JSX.Element => {
   return (
-    <div className={props.inputStyle ?? styles.input}>
+    <div className={compare(props.className, styles.input)}>
       <span>{props.title}</span>
       <Field
         type={props.type}

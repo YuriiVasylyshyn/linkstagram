@@ -4,17 +4,20 @@ type ProfileProps = { users: Profile[] };
 
 const ProfileRow = ({ users }: ProfileProps): JSX.Element => (
   <div className={styles.row}>
-    {users.map(
-      (user, index) =>
-        user.profile_photo_url != null && (
+    {users.map((user, index) => {
+      const { profile_photo_url, first_name } = user;
+
+      return (
+        profile_photo_url != null && (
           <img
             key={index}
             className={styles.img}
-            src={user.profile_photo_url}
-            alt={user.first_name}
+            src={profile_photo_url}
+            alt={first_name}
           />
         )
-    )}
+      );
+    })}
   </div>
 );
 

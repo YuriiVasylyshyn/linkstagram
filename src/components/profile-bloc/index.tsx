@@ -39,11 +39,17 @@ const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
           content={'Edit profile'}
           type="button"
           className={styles.edit}
+          onClick={(e) => {
+            console.log(e);
+          }}
         ></Button>
         <Button
           content={'New post'}
           type="button"
           className={styles.post}
+          onClick={(e) => {
+            console.log(e);
+          }}
         ></Button>
       </div>
     </div>

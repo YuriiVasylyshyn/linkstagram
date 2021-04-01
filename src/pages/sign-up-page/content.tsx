@@ -13,7 +13,7 @@ type SignUpLayoutProps = {
 const SignUpLayout = ({ callBack }: SignUpLayoutProps): JSX.Element => (
   <div className={styles.body}>
     <div className={styles.content}>
-      <img src={image} alt=""></img>
+      <img src={image} alt="app sample"></img>
       <SigningForm callBack={callBack} />
     </div>
   </div>

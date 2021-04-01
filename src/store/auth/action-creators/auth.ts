@@ -3,17 +3,17 @@ import { AuthAction, AuthActionTypes } from '../types/auth';
 
 import * as requests from '../../../services/requests-service';
 
-export const signUp = (username: string, login: string, password: string) => {
+export const auth = (login: string, password: string, username?: string) => {
   return async (dispatch: Dispatch<AuthAction>) => {
     try {
-      dispatch({ type: AuthActionTypes.SIGN_UP });
-      const response = await requests.createNewAccount(
-        username,
-        login,
-        password
-      );
+      dispatch({ type: AuthActionTypes.AUTH });
 
-      const data: Success = response.data;
+      const response =
+        username != null
+          ? requests.createNewAccount(username, login, password)
+          : requests.login(login, password);
+
+      const data: Success = (await response).data;
 
       dispatch({
         type: AuthActionTypes.AUTH_SUCCESS,
@@ -29,24 +29,24 @@ export const signUp = (username: string, login: string, password: string) => {
   };
 };
 
-export const login = (login: string, password: string) => {
-  return async (dispatch: Dispatch<AuthAction>) => {
-    try {
-      dispatch({ type: AuthActionTypes.LOGIN });
-      const response = await requests.login(login, password);
+// export const login = (login: string, password: string) => {
+//   return async (dispatch: Dispatch<AuthAction>) => {
+//     try {
+//       dispatch({ type: AuthActionTypes.AUTH });
+//       const response = await requests.login(login, password);
 
-      const data: Success = response.data;
+//       const data: Success = response.data;
 
-      dispatch({
-        type: AuthActionTypes.AUTH_SUCCESS,
-        payload: data.success,
-      });
-    } catch (e) {
-      console.log(e);
-      dispatch({
-        type: AuthActionTypes.AUTH_ERROR,
-        payload: 'Authentication error',
-      });
-    }
-  };
-};
+//       dispatch({
+//         type: AuthActionTypes.AUTH_SUCCESS,
+//         payload: data.success,
+//       });
+//     } catch (e) {
+//       console.log(e);
+//       dispatch({
+//         type: AuthActionTypes.AUTH_ERROR,
+//         payload: 'Authentication error',
+//       });
+//     }
+//   };
+// };

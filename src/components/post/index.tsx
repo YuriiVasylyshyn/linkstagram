@@ -25,7 +25,13 @@ const Post = ({ post }: PostProps): JSX.Element => {
           <span>{first_name + ' ' + last_name}</span>
           <span className={styles.date}>{created_at}</span>
         </div>
-        <Button type="button" className={styles.moreIcon}></Button>
+        <Button
+          type="button"
+          className={styles.moreIcon}
+          onClick={(e) => {
+            console.log(e);
+          }}
+        ></Button>
       </div>
       <div className={styles.body}>
         <img src={url} alt="" />
