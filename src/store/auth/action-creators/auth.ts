@@ -15,6 +15,8 @@ export const auth = (login: string, password: string, username?: string) => {
 
       const data: Success = (await response).data;
 
+      console.log(data + 'asfasf');
+
       dispatch({
         type: AuthActionTypes.AUTH_SUCCESS,
         payload: data.success,
