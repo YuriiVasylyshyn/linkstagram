@@ -6,10 +6,9 @@ export const getRequest = async (url: string) =>
     headers: Headers,
   });
 
-export const postRequest = async (url: string, props: { body: Object }) =>
-  await axios.post(ApiUrl + url, {
+export const postRequest = async (url: string, body: Object) =>
+  await axios.post(ApiUrl + url, body, {
     headers: Headers,
-    body: props.body,
   });
 
 export const deleteRequest = async (url: string) =>

@@ -1,15 +1,19 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import LoginPage from './pages/login-page/content';
-import SignUpPage from './pages/sign-up-page/content';
+import SignUpPage from './pages/sign-up-page/index';
+import MainPage from './pages/main-page/index';
+
+import * as routes from './configs/routes';
 
 const Router = () => (
   <>
-    <Redirect from="/" to="/login" />
     <Switch>
-      <Route path="/login" component={LoginPage} />
+      <Route path={routes.login_page} component={LoginPage} />
 
-      <Route path="/sign-up" component={SignUpPage} />
+      <Route path={routes.signUp_page} component={SignUpPage} />
+
+      <Route path={routes.main_page} component={MainPage} />
       {/* Add new routes here */}
     </Switch>
   </>

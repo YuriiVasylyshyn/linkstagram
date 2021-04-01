@@ -11,7 +11,7 @@ export const createNewAccount = (
     password: password,
   };
 
-  requests.postRequest('create-account', { body: body });
+  return requests.postRequest('create-account', body);
 };
 
 export const login = (login: string, password: string) => {
@@ -20,5 +20,13 @@ export const login = (login: string, password: string) => {
     password: password,
   };
 
-  requests.postRequest('login', { body: body });
+  return requests.postRequest('login', { body: body });
+};
+
+export const getProfiles = () => {
+  return requests.getRequest('profiles');
+};
+
+export const getPosts = () => {
+  return requests.getRequest('posts');
 };

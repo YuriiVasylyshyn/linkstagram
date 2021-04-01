@@ -1,19 +1,22 @@
-import { Component } from 'react';
 import styles from '../../styles/sign-up.module.scss';
 import image from '../../assets/images/sign-up_image.png';
-import SigningForm from '../../components/signing-form/content';
+import SigningForm from '../../components/sign-up-form/index';
 
-class SignUpPage extends Component {
-  render() {
-    return (
-      <div className={styles.body}>
-        <div className={styles.content}>
-          <img src={image} alt=''></img>
-          <SigningForm isSignUp={true} />
-        </div>
-      </div>
-    );
-  }
-}
+type SignUpLayoutProps = {
+  callBack: (values: {
+    email: string;
+    username: string;
+    password: string;
+  }) => {};
+};
 
-export default SignUpPage;
+const SignUpLayout = ({ callBack }: SignUpLayoutProps): JSX.Element => (
+  <div className={styles.body}>
+    <div className={styles.content}>
+      <img src={image} alt="app sample"></img>
+      <SigningForm callBack={callBack} />
+    </div>
+  </div>
+);
+
+export default SignUpLayout;

@@ -5,9 +5,8 @@
   height: 48px;
 
   background-color: $blue;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 
-  font-style: normal;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25rem;
@@ -18,4 +17,8 @@
 
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  :focus {
+    outline: none;
+  }
 }
