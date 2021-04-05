@@ -4,6 +4,9 @@ import LoginPage from './pages/login-page/index';
 import SignUpPage from './pages/sign-up-page/index';
 import MainPage from './pages/home-page/index';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import * as routes from './configs/routes';
 
 const Router = () => (
@@ -21,6 +24,7 @@ const Router = () => (
 
       {/* Add new routes here */}
     </Switch>
+    <ToastContainer />
   </>
 );
 
