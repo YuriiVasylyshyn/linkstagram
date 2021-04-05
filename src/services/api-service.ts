@@ -38,6 +38,7 @@ const _returnResponse = (response: AxiosResponse): AxiosResponse => {
     case 422:
       return response;
     case 500:
+      throw showErrorToast('There are some server problems');
     default:
       throw showErrorToast(
         'Error occurred while Communication with Server with StatusCode :' +

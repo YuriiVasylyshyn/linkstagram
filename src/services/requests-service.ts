@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import * as requests from './api-service';
 
 export const createNewAccount = (
@@ -24,10 +23,10 @@ export const login = (login: string, password: string) => {
   return requests.postRequest('login', { body: body });
 };
 
-export const getProfiles = (): Promise<AxiosResponse<Profile[]>> => {
+export const getProfiles = () => {
   return requests.getRequest('profiles');
 };
 
-export const getPosts = (): Promise<AxiosResponse<Post[]>> => {
+export const getPosts = () => {
   return requests.getRequest('posts');
 };

@@ -6,8 +6,11 @@ import LoginLayout from './content';
 
 import ScreenWrapper from '../../services/wrappers/screen-wrapper';
 
+import { useHistory } from 'react-router-dom';
+
 const LoginPage = (): JSX.Element => {
   const { loading, error } = useTypesSelector((state) => state.auth);
+  const { push } = useHistory();
 
   const dispatch = useDispatch();
 
@@ -17,7 +20,9 @@ const LoginPage = (): JSX.Element => {
       error={error}
       page={
         <LoginLayout
-          callBack={(values) => dispatch(auth(values.email, values.password))}
+          callBack={(values) =>
+            dispatch(auth(values.email, values.password, () => push('/home')))
+          }
         />
       }
     />
