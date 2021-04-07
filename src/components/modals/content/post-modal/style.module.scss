@@ -1,0 +1,91 @@
+@import '/src/styles/colors.scss';
+
+.overlay {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 32px;
+
+  img {
+    width: 55%;
+    height: 100%;
+  }
+  .content {
+    width: 45%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header {
+      height: 12%;
+
+      border-bottom: 0.5px solid #c9cad1;
+
+      padding: 1.25rem 2rem;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          width: 4rem;
+          height: 4rem;
+
+          border: 0.5px solid #c9cad1;
+          box-sizing: border-box;
+          border-radius: 12px;
+        }
+
+        span {
+          font-weight: 500;
+          align-self: center;
+
+          margin-left: 1rem;
+        }
+      }
+
+      .close {
+        border: none;
+        background-color: transparent;
+
+        :focus {
+          outline: none;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .body {
+      height: 66%;
+      padding: 1.25rem 2rem;
+    }
+
+    .like {
+      height: 10%;
+
+      padding: 1.25rem 2rem;
+
+      border-bottom: 0.5px solid #c9cad1;
+      border-top: 0.5px solid #c9cad1;
+    }
+
+    .footer {
+      height: 12%;
+
+      padding: 1.25rem 2rem;
+    }
+  }
+}

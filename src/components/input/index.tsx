@@ -17,22 +17,35 @@ type InputProps = {
 };
 
 const Input = ({ ...props }: InputProps): JSX.Element => {
+  const {
+    className,
+    title,
+    type,
+    name,
+    placeholder,
+    onChange,
+    handleBlur,
+    value,
+    fieldStyle,
+    errorStyle,
+  } = props;
+
   return (
-    <div className={compare(props.className, styles.input)}>
-      <span>{props.title}</span>
+    <div className={compare(className, styles.input)}>
+      <span>{title}</span>
       <Field
-        type={props.type}
-        name={props.name}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        onBlur={props.handleBlur ?? null}
-        value={props.value}
-        className={props.fieldStyle ?? styles.field}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        onBlur={handleBlur ?? null}
+        value={value}
+        className={fieldStyle ?? styles.field}
       />
       <ErrorMessage
-        name={props.name}
+        name={name}
         component="span"
-        className={props.fieldStyle ?? styles.error}
+        className={errorStyle ?? styles.error}
       />
     </div>
   );

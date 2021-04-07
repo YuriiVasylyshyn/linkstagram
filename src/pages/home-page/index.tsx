@@ -15,10 +15,9 @@ const HomePage = (): JSX.Element => {
   const { getUsers } = UserAction();
   const { getPosts } = PostsAction();
 
-  useEffect(() => {
+  void useEffect(() => {
     getUsers();
     getPosts();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -1,13 +1,13 @@
 import Header from './components/header';
 import Router from './router';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <>
       <Header />
       <Router />
     </>
   );
-}
+};
 
 export default App;
