@@ -7,8 +7,7 @@ import likeIcon from '../../assets/icons/like-icon.svg';
 import commentIcon from '../../assets/icons/comment-icon.svg';
 import arrowIcon from '../../assets/icons/arrow-icon.svg';
 import React from 'react';
-import PostModalContent from '../modals/content/post-modal';
-import ContentModal from '../modals';
+import PostModal from '../modals/post-modal';
 
 type PostProps = {
   post: Post;
@@ -21,20 +20,15 @@ const Post = ({ post }: PostProps): JSX.Element => {
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  const openModal = (): void => {
-    setIsOpen(true);
-  };
-
-  const closeModal = (): void => {
-    setIsOpen(false);
-  };
+  const openModal = (): void => setIsOpen(true);
+  const closeModal = (): void => setIsOpen(false);
 
   return (
     <div className={styles.content}>
-      <ContentModal
+      <PostModal
         modalIsOpen={modalIsOpen}
-        setIsOpen={openModal}
-        content={<PostModalContent post={post} onClose={closeModal} />}
+        post={post}
+        closeModal={closeModal}
       />
       <div className={styles.header}>
         <div className={styles.user}></div>
