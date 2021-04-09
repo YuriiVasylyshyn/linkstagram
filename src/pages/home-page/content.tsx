@@ -2,9 +2,6 @@ import styles from '../../styles/main.module.scss';
 import ProfilesRow from '../../components/profiles-row/index';
 import ProfileBloc from '../../components/profile-bloc/index';
 import Post from '../../components/post/index';
-import React from 'react';
-import ContentModal from '../../components/modals';
-import PostModalContent from '../../components/modals/content/post-modal';
 
 type HomeLayoutProps = {
   users: Profile[];

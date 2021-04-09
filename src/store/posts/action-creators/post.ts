@@ -17,7 +17,7 @@ export const getPosts = () => {
       console.log(e);
       dispatch({
         type: PostActionTypes.FETCH_POSTS_ERROR,
-        payload: 'Fetching user error',
+        payload: 'Fetching posts error',
       });
     }
   };

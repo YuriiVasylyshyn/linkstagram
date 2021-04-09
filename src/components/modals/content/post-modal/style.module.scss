@@ -80,6 +80,18 @@
 
       border-bottom: 0.5px solid #c9cad1;
       border-top: 0.5px solid #c9cad1;
+
+      display: flex;
+      flex-direction: row;
+
+      img {
+        width: 1.5rem;
+      }
+      span {
+        align-self: center;
+        margin-left: 0.6rem;
+        font-weight: 600;
+      }
     }
 
     .footer {

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as UserActionCreator from '../store/profile/action-creators/profile';
 import * as AuthActionCreator from '../store/auth/action-creators/auth';
 import * as PostsActionCreator from '../store/posts/action-creators/post';
+import * as CommentsActionCreator from '../store/comments/action-creators/comments';
 
 export const UserAction = () => {
   const dispatch = useDispatch();
@@ -18,4 +19,9 @@ export const AuthAction = () => {
 export const PostsAction = () => {
   const dispatch = useDispatch();
   return bindActionCreators(PostsActionCreator, dispatch);
+};
+
+export const CommentsAction = () => {
+  const dispatch = useDispatch();
+  return bindActionCreators(CommentsActionCreator, dispatch);
 };

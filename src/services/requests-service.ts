@@ -30,3 +30,7 @@ export const getProfiles = () => {
 export const getPosts = () => {
   return requests.getRequest('posts');
 };
+
+export const getComments = (postId: number) => {
+  return requests.getRequest(`/posts/${postId}/comments`);
+};
