@@ -4,6 +4,8 @@ import closeIcon from '../../../assets/icons/close-icon.svg';
 import likeIcon from '../../../assets/icons/like-icon.svg';
 import isLikedIcon from '../../../assets/icons/isLiked-icon.svg';
 import CommentBloc from '../../comment-bloc/index';
+import { useState } from 'react';
+import Button from '../../button';
 
 type PostModalProps = {
   post: Post;
@@ -19,6 +21,8 @@ const PostModalContent = ({
   const { likes_count, is_liked }: Post = post;
   const { first_name, last_name, profile_photo_url }: Profile = post.author;
   const { url }: Photo = post.photos[0];
+
+  const [comment, setComment] = useState('');
 
   return (
     <div className={styles.overlay}>
@@ -52,7 +56,15 @@ const PostModalContent = ({
           <img src={is_liked ? isLikedIcon : likeIcon} alt="like" />
           <span>{likes_count ?? 0}</span>
         </div>
-        <div className={styles.footer}>footer</div>
+        <div className={styles.footer}>
+          <input
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Add a comment..."
+          />
+          <Button type="button" content="Post" className={styles.post} />
+        </div>
       </div>
     </div>
   );
