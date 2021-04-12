@@ -24,9 +24,9 @@ export const auth = (
       if (responseJson.data.error) {
         const error = responseJson.data.error;
 
-        showErrorToast(error, 'success');
+        showErrorToast(error);
 
-        return dispatch({
+        dispatch({
           type: AuthActionTypes.AUTH_ERROR,
           payload: 'Authentication error',
         });

@@ -6,7 +6,6 @@ import Modal from 'react-modal';
 import PostModalContent from './content';
 import { CommentsAction } from '../../../hooks/useActions';
 import { useTypesSelector } from '../../../hooks/useTypedSelector';
-import ScreenWrapper from '../../../services/wrappers/screen-wrapper';
 
 Modal.setAppElement('#root');
 
@@ -23,34 +22,26 @@ const PostModal = ({
 }: PostModalProps): JSX.Element => {
   const { id } = post;
 
-  const { comments, loading, error } = useTypesSelector(
-    (state) => state.comments
-  );
+  const { comments } = useTypesSelector((state) => state.comments);
 
   const { getComments } = CommentsAction();
 
   const afterOpenModal = () => getComments(id);
 
   return (
-    <ScreenWrapper
-      error={error}
-      loading={loading}
-      page={
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={() => closeModal(false)}
-          overlayClassName={styles.overlay}
-          className={styles.content}
-        >
-          <PostModalContent
-            onClose={() => closeModal(false)}
-            comments={comments}
-            post={post}
-          />
-        </Modal>
-      }
-    />
+    <Modal
+      isOpen={modalIsOpen}
+      onAfterOpen={afterOpenModal}
+      onRequestClose={() => closeModal(false)}
+      overlayClassName={styles.overlay}
+      className={styles.content}
+    >
+      <PostModalContent
+        onClose={() => closeModal(false)}
+        comments={comments}
+        post={post}
+      />
+    </Modal>
   );
 };
 

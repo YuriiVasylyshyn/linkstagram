@@ -3,27 +3,39 @@ import { ApiUrl, Headers } from '../configs/api';
 import showErrorToast from './errors-handler';
 
 export const getRequest = async (url: string) => {
-  const response: AxiosResponse = await axios.get(ApiUrl + url, {
-    headers: Headers,
-  });
+  try {
+    const response: AxiosResponse = await axios.get(ApiUrl + url, {
+      headers: Headers,
+    });
 
-  return _returnResponse(response);
+    return _returnResponse(response);
+  } catch (error) {
+    return _returnResponse(error.response);
+  }
 };
 
 export const postRequest = async (url: string, body: Object) => {
-  const response: AxiosResponse = await axios.post(ApiUrl + url, body, {
-    headers: Headers,
-  });
+  try {
+    const response: AxiosResponse = await axios.post(ApiUrl + url, body, {
+      headers: Headers,
+    });
 
-  return _returnResponse(response);
+    return _returnResponse(response);
+  } catch (error) {
+    return _returnResponse(error.response);
+  }
 };
 
 export const deleteRequest = async (url: string) => {
-  const response: AxiosResponse = await axios.delete(ApiUrl + url, {
-    headers: Headers,
-  });
+  try {
+    const response: AxiosResponse = await axios.delete(ApiUrl + url, {
+      headers: Headers,
+    });
 
-  return _returnResponse(response);
+    return _returnResponse(response);
+  } catch (error) {
+    return _returnResponse(error.response);
+  }
 };
 
 const _returnResponse = (response: AxiosResponse): AxiosResponse => {
@@ -31,6 +43,7 @@ const _returnResponse = (response: AxiosResponse): AxiosResponse => {
     case 200:
       return response;
     case 204:
+      return response;
     case 400:
       throw showErrorToast('Bad request');
     case 401:
