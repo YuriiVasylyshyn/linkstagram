@@ -1,0 +1,160 @@
+@import '/src/styles/colors.scss';
+
+.overlay {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 32px;
+
+  overflow-y: hidden;
+
+  .image {
+    width: 55%;
+    height: 100%;
+
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 70vh;
+      max-width: 100%;
+
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    width: 45%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header {
+      height: 12%;
+
+      border-bottom: 0.5px solid #c9cad1;
+
+      padding: 1.25rem 2rem;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+
+        img {
+          width: 40px;
+          height: 40px;
+
+          border: 0.5px solid #c9cad1;
+          box-sizing: border-box;
+          border-radius: 12px;
+        }
+
+        span {
+          font-weight: 500;
+          align-self: center;
+
+          margin-left: 1rem;
+        }
+      }
+
+      .close {
+        border: none;
+        background-color: transparent;
+
+        :focus {
+          outline: none;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .body {
+      height: 66%;
+      padding: 1.25rem 2rem;
+
+      justify-content: start;
+
+      overflow-y: scroll;
+    }
+
+    .like {
+      height: 10%;
+
+      padding: 1.25rem 2rem;
+
+      border-bottom: 0.5px solid #c9cad1;
+      border-top: 0.5px solid #c9cad1;
+
+      display: flex;
+      flex-direction: row;
+
+      img {
+        width: 1.5rem;
+      }
+      span {
+        align-self: center;
+        margin-left: 0.6rem;
+        font-weight: 600;
+      }
+    }
+
+    .footer {
+      height: 12%;
+
+      padding: 1.25rem 2rem;
+
+      display: flex;
+      flex-direction: row;
+
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        border: none;
+        color: $darkGray;
+
+        font-size: 1rem;
+      }
+
+      .post {
+        width: min-content;
+        height: min-content;
+
+        border: none;
+        background-color: transparent;
+        color: $blue;
+
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .overlay {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+    }
+  }
+}

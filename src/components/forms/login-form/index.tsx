@@ -3,26 +3,22 @@ import styles from './style.module.scss';
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 
-import Button from '../button';
-import Input from '../input/index';
+import Button from '../../button';
+import Input from '../../input/index';
 
-import { SignUpSchema } from '../../services/validation';
+import { LoginSchema } from '../../../services/validation';
 
-import { login_page } from '../../configs/routes';
+import { signUp_page } from '../../../configs/routes';
 
-type SigningFormProps = {
-  callBack: (values: {
-    email: string;
-    username: string;
-    password: string;
-  }) => {};
+type LoginFormProps = {
+  callBack: (values: { email: string; password: string }) => {};
 };
 
-const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
+const LoginForm = ({ callBack }: LoginFormProps): JSX.Element => {
   return (
     <Formik
-      initialValues={{ email: '', username: '', password: '' }}
-      validationSchema={SignUpSchema}
+      initialValues={{ email: '', password: '' }}
+      validationSchema={LoginSchema}
       onSubmit={(values) => {
         callBack(values);
       }}
@@ -30,7 +26,7 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
       {({ values, handleChange, handleBlur, handleSubmit }) => (
         <Form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.content}>
-            <h1>Sign Up</h1>
+            <h1>Log In</h1>
             <Input
               title="Email"
               type="email"
@@ -39,14 +35,6 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
               onChange={handleChange}
               handleBlur={handleBlur}
               value={values.email}
-            />
-            <Input
-              title="User Name"
-              type="text"
-              name="username"
-              placeholder="alex example..."
-              onChange={handleChange}
-              value={values.username}
             />
             <Input
               title="Password"
@@ -58,17 +46,11 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
             />
           </div>
           <div className={styles.footer}>
-            <Button
-              type="submit"
-              content={'Sign up'}
-              onClick={(e) => {
-                console.log(e);
-              }}
-            ></Button>
+            <Button type="submit" content={'Log in'}></Button>
             <div className={styles.logIn}>
-              <span>{'Have an account?'}</span>
-              <Link className={styles.logInText} to={login_page}>
-                Log in
+              <span>{"Don't have an account?"}</span>
+              <Link className={styles.logInText} to={signUp_page}>
+                Sign Up
               </Link>
             </div>
           </div>
@@ -78,4 +60,4 @@ const SigningForm = ({ callBack }: SigningFormProps): JSX.Element => {
   );
 };
 
-export default SigningForm;
+export default LoginForm;

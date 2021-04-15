@@ -1,0 +1,25 @@
+@import '/src/styles/colors.scss';
+
+.overlay {
+  background-color: rgba($color: $black, $alpha: 0.5);
+  position: fixed;
+  inset: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 60%;
+    height: 70%;
+
+    padding: 0;
+
+    position: fixed;
+    background: $white;
+
+    overflow: auto;
+    border-radius: 2rem;
+    outline: none;
+  }
+}

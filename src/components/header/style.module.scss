@@ -20,24 +20,35 @@
     margin: 0;
     padding: 0;
 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     .languageButton {
+      height: 2.5rem;
+
       background: $white;
       color: $black;
 
       box-sizing: border-box;
 
       font-weight: 600;
-      font-size: 0.8em;
+      font-size: 0.8rem;
 
       margin: 1.5rem 0;
-      padding: 0.6rem 0.75rem;
+      padding: 0 0.75rem;
     }
 
     .homeButton {
+      height: 2.5rem;
+
       display: flex;
       flex-direction: row;
+      justify-content: center;
       align-items: center;
-      padding: 4px 24px;
+
+      margin-right: 1rem;
+      padding: 0 1.5rem;
 
       position: static;
       width: 85px;

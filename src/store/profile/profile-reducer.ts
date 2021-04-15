@@ -6,7 +6,7 @@ import {
 
 const initialState: ProfileState = {
   profiles: [],
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -16,7 +16,7 @@ export const profileReducer = (
 ): ProfileState => {
   switch (action.type) {
     case ProfileActionTypes.FETCH_USERS:
-      return { ...state };
+      return { ...state, loading: true };
 
     case ProfileActionTypes.FETCH_USERS_SUCCESS:
       return { ...state, loading: false, profiles: action.payload };
