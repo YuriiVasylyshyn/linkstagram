@@ -4,6 +4,8 @@ import { AuthAction, AuthActionTypes } from '../types/auth';
 import * as requests from '../../../services/requests-service';
 import showErrorToast from '../../../services/errors-handler';
 
+import { authTokenKey } from '../../../configs/api';
+
 export const auth = (
   login: string,
   password: string,
@@ -32,6 +34,10 @@ export const auth = (
         });
       } else {
         const data: Success = responseJson.data;
+
+        const authToken: string = `Bearer ${responseJson.headers.authorization}`;
+
+        localStorage.setItem(authTokenKey, authToken);
 
         showErrorToast(data.success, 'success');
 

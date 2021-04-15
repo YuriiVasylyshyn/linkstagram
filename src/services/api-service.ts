@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
-import { ApiUrl, Headers } from '../configs/api';
+import { ApiUrl, getHeaders } from '../configs/api';
 import showErrorToast from './errors-handler';
 
 export const getRequest = async (url: string) => {
   try {
     const response: AxiosResponse = await axios.get(ApiUrl + url, {
-      headers: Headers,
+      headers: getHeaders(),
     });
 
     return _returnResponse(response);
@@ -17,7 +17,7 @@ export const getRequest = async (url: string) => {
 export const postRequest = async (url: string, body: Object) => {
   try {
     const response: AxiosResponse = await axios.post(ApiUrl + url, body, {
-      headers: Headers,
+      headers: getHeaders(),
     });
 
     return _returnResponse(response);
@@ -29,7 +29,7 @@ export const postRequest = async (url: string, body: Object) => {
 export const deleteRequest = async (url: string) => {
   try {
     const response: AxiosResponse = await axios.delete(ApiUrl + url, {
-      headers: Headers,
+      headers: getHeaders(),
     });
 
     return _returnResponse(response);

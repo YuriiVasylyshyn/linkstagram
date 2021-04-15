@@ -3,6 +3,8 @@ import ProfilesRow from '../../components/profiles-row/index';
 import ProfileBloc from '../../components/profile-bloc/index';
 import Post from '../../components/post/index';
 
+import { isAuthorized } from '../../configs/api';
+
 type HomeLayoutProps = {
   users: Profile[];
   posts: Post[];
@@ -20,7 +22,7 @@ const HomeLayout = ({ users, posts, user }: HomeLayoutProps): JSX.Element => {
           ))}
         </div>
       </div>
-      {user && <ProfileBloc user={user} />}
+      {isAuthorized() ? user && <ProfileBloc user={user} /> : null}
     </div>
   );
 };

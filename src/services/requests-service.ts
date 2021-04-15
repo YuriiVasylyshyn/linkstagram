@@ -34,3 +34,11 @@ export const getPosts = () => {
 export const getComments = (postId: number) => {
   return requests.getRequest(`/posts/${postId}/comments`);
 };
+
+export const leaveComment = (postId: number, message: string) => {
+  const body = {
+    message: message,
+  };
+
+  return requests.postRequest(`/posts/${postId}/comments`, { body: body });
+};
