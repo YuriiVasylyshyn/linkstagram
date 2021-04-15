@@ -26,7 +26,9 @@ const PostModalContent = ({
 
   return (
     <div className={styles.overlay}>
-      <img src={url} alt="Post" />
+      <div className={styles.image}>
+        <img src={url} alt="Post" />
+      </div>
       <div className={styles.content}>
         <div className={styles.header}>
           <div className={styles.user}>
