@@ -20,7 +20,7 @@ const HomeLayout = ({ users, posts, user }: HomeLayoutProps): JSX.Element => {
           ))}
         </div>
       </div>
-      <ProfileBloc user={user} />
+      {user && <ProfileBloc user={user} />}
     </div>
   );
 };

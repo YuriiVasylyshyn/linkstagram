@@ -18,7 +18,6 @@ const HomePage = (): JSX.Element => {
   void useEffect(() => {
     getUsers();
     getPosts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

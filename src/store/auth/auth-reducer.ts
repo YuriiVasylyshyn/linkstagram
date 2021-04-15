@@ -15,10 +15,10 @@ export const authReducer = (
       return { ...state, loading: true };
 
     case AuthActionTypes.AUTH_SUCCESS:
-      return { ...state, result: action.payload };
+      return { ...state, loading: false, result: action.payload };
 
     case AuthActionTypes.AUTH_ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

@@ -6,7 +6,7 @@ import {
 
 const initialState: CommentState = {
   comments: [],
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -16,7 +16,7 @@ export const commentsReducer = (
 ): CommentState => {
   switch (action.type) {
     case CommentActionTypes.FETCH_COMMENTS:
-      return { ...state };
+      return { ...state, loading: true };
 
     case CommentActionTypes.FETCH_COMMENTS_SUCCESS:
       return {
