@@ -4,6 +4,7 @@ import { useTypesSelector } from '../../hooks/useTypedSelector';
 import HomeLayout from './content';
 
 import ScreenWrapper from '../../services/wrappers/screen-wrapper';
+import { isAuthorized } from '../../configs/api';
 
 const HomePage = (): JSX.Element => {
   const { profiles, loading, error } = useTypesSelector(
@@ -21,7 +22,7 @@ const HomePage = (): JSX.Element => {
   void useEffect(() => {
     getUsers();
     getPosts();
-    getAccount();
+    if (isAuthorized()) getAccount();
   }, []);
 
   return (

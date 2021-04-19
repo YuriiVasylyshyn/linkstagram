@@ -51,8 +51,6 @@ export const auth = (
         });
       }
     } catch (e) {
-      console.log(e);
-
       dispatch({
         type: AuthActionTypes.AUTH_ERROR,
         payload: 'Authentication error',

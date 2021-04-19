@@ -20,7 +20,7 @@ export const login = (login: string, password: string) => {
     password: password,
   };
 
-  return requests.postRequest('login', { body: body });
+  return requests.postRequest('login', body);
 };
 
 export const getProfiles = () => {
@@ -40,7 +40,7 @@ export const leaveComment = (postId: number, message: string) => {
     message: message,
   };
 
-  return requests.postRequest(`/posts/${postId}/comments`, { body: body });
+  return requests.postRequest(`/posts/${postId}/comments`, body);
 };
 
 export const getAccount = () => {
