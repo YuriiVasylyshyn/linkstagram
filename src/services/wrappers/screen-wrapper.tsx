@@ -1,5 +1,5 @@
 import CircularLoader from '../../components/circular-loader/index';
-import showErrorToast from '../../services/errors-handler';
+import Error from '../../components/error/index';
 
 type ScreenWrapperProps = {
   page: JSX.Element;
@@ -17,7 +17,7 @@ const ScreenWrapper = ({
   }
 
   if (error) {
-    showErrorToast(error);
+    return <Error error={error} />;
   }
 
   return page;
