@@ -5,9 +5,7 @@ export const SignUpSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Username is required'),
-
   email: Yup.string().email().required('Email is required'),
-
   password: Yup.string()
     .required('Password is required')
     .min(6, 'Password is too short - should be 6 chars minimum'),
@@ -15,6 +13,12 @@ export const SignUpSchema = Yup.object().shape({
 
 export const LoginSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
-
   password: Yup.string().required('Password is required'),
+});
+
+export const EditProfileSchema = Yup.object().shape({
+  firstName: Yup.string().min(2, 'Too Short!').max(30, 'Too Long!'),
+  secondName: Yup.string().min(2, 'Too Short!').max(30, 'Too Long!'),
+  jobTitle: Yup.string().min(2, 'Too Short!').max(30, 'Too Long!'),
+  description: Yup.string().min(2, 'Too Short!').max(500, 'Too Long!'),
 });

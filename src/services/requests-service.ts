@@ -46,3 +46,20 @@ export const leaveComment = (postId: number, message: string) => {
 export const getAccount = () => {
   return requests.getRequest('/account');
 };
+
+export const editAccount = (
+  firstName: string,
+  lastName: string,
+  jobTitle: string,
+  description: string
+) => {
+  const body = {
+    account: {
+      first_name: firstName,
+      last_name: lastName,
+      job_title: jobTitle,
+      description: description,
+    },
+  };
+  return requests.patchRequest('/account', body);
+};

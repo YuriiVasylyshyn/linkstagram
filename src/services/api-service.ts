@@ -26,6 +26,18 @@ export const postRequest = async (url: string, body: Object) => {
   }
 };
 
+export const patchRequest = async (url: string, body: Object) => {
+  try {
+    const response: AxiosResponse = await axios.patch(ApiUrl + url, body, {
+      headers: getHeaders(),
+    });
+
+    return _returnResponse(response);
+  } catch (error) {
+    return _returnResponse(error.response);
+  }
+};
+
 export const deleteRequest = async (url: string) => {
   try {
     const response: AxiosResponse = await axios.delete(ApiUrl + url, {
