@@ -16,9 +16,9 @@ const ScreenWrapper = ({
     return <CircularLoader />;
   }
 
-  if (error) {
-    showErrorToast(error);
-  }
+  // if (error) {
+  //   showErrorToast(error);
+  // }
 
   return page;
 };

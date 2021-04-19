@@ -23,8 +23,10 @@ export const auth = (
 
       const responseJson = await response;
 
-      if (responseJson.data.error) {
-        const error = responseJson.data.error;
+      if (responseJson.data['field-error']) {
+        const data: string = responseJson.data['field-error'][1];
+
+        const error: string = data.charAt(0).toUpperCase() + data.slice(1);
 
         showErrorToast(error);
 

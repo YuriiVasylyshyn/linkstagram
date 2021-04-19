@@ -42,3 +42,7 @@ export const leaveComment = (postId: number, message: string) => {
 
   return requests.postRequest(`/posts/${postId}/comments`, { body: body });
 };
+
+export const getAccount = () => {
+  return requests.getRequest('/account');
+};

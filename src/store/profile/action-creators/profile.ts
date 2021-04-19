@@ -17,7 +17,7 @@ export const getUsers = () => {
       console.log(e);
       dispatch({
         type: ProfileActionTypes.FETCH_USERS_ERROR,
-        payload: 'Fetching user error',
+        payload: 'Fetching users error',
       });
     }
   };

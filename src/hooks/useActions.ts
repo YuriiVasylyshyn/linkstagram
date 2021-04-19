@@ -5,6 +5,7 @@ import * as UserActionCreator from '../store/profile/action-creators/profile';
 import * as AuthActionCreator from '../store/auth/action-creators/auth';
 import * as PostsActionCreator from '../store/posts/action-creators/post';
 import * as CommentsActionCreator from '../store/comments/action-creators/comments';
+import * as AccountActionCreator from '../store/account/action-creators/account';
 
 export const UserAction = () => {
   const dispatch = useDispatch();
@@ -24,4 +25,9 @@ export const PostsAction = () => {
 export const CommentsAction = () => {
   const dispatch = useDispatch();
   return bindActionCreators(CommentsActionCreator, dispatch);
+};
+
+export const AccountAction = () => {
+  const dispatch = useDispatch();
+  return bindActionCreators(AccountActionCreator, dispatch);
 };
