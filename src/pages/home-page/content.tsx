@@ -32,6 +32,7 @@ const HomeLayout = ({ users, posts, user }: HomeLayoutProps): JSX.Element => {
           editAccount(
             values.firstName,
             values.lastName,
+            values.file,
             values.jobTitle,
             values.description
           )

@@ -21,6 +21,7 @@ type AccountModalProps = {
   callBack: (values: {
     firstName: string;
     lastName: string;
+    file: File;
     jobTitle: string;
     description: string;
   }) => {};
@@ -53,17 +54,23 @@ const AccountModal = ({
         initialValues={{
           firstName: first_name ?? '',
           lastName: last_name ?? '',
+          file: File,
           jobTitle: job_title ?? '',
           description: description ?? '',
-          avatar: File,
         }}
         validationSchema={EditProfileSchema}
         onSubmit={(values) => {
-          console.log(values.avatar);
-          callBack(values);
+          console.log(values.file);
+          // callBack(values);
         }}
       >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
+        {({
+          values,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          setFieldValue,
+        }) => (
           <div className={styles.bloc}>
             <Form onSubmit={handleSubmit}>
               <div className={styles.header}>
@@ -79,12 +86,16 @@ const AccountModal = ({
                 </button>
               </div>
               <div className={styles.firstPart}>
-                <Field
-                  type="file"
-                  name="avatar"
+                <input
                   id="avatar"
-                  onBlur={handleBlur}
-                  value={values.avatar}
+                  name="avatar"
+                  type="file"
+                  onChange={(event) => {
+                    setFieldValue(
+                      'file',
+                      event.currentTarget.files ? [0] : null
+                    );
+                  }}
                   className={styles.fileInput}
                 />
                 <div className={styles.name}>
