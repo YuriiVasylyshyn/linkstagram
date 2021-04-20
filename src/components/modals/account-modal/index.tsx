@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 
 import React from 'react';
 import Modal from 'react-modal';
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { EditProfileSchema } from '../../../services/validation';
 import Input from '../../input';
 import Button from '../../button';
@@ -55,9 +55,11 @@ const AccountModal = ({
           lastName: last_name ?? '',
           jobTitle: job_title ?? '',
           description: description ?? '',
+          avatar: File,
         }}
         validationSchema={EditProfileSchema}
         onSubmit={(values) => {
+          console.log(values.avatar);
           callBack(values);
         }}
       >
@@ -77,7 +79,14 @@ const AccountModal = ({
                 </button>
               </div>
               <div className={styles.firstPart}>
-                <img src={profile_photo_url} alt={first_name} />
+                <Field
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  onBlur={handleBlur}
+                  value={values.avatar}
+                  className={styles.fileInput}
+                />
                 <div className={styles.name}>
                   <Input
                     title="First Name"
