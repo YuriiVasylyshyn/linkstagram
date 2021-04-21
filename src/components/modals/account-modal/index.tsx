@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 
 import React from 'react';
 import Modal from 'react-modal';
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { EditProfileSchema } from '../../../services/validation';
 import Input from '../../input';
 import Button from '../../button';
@@ -42,6 +42,11 @@ const AccountModal = ({
 
   const { push } = useHistory();
 
+  const logout = () => {
+    localStorage.removeItem(authTokenKey);
+    push(routes.signUp_page);
+  };
+
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -61,24 +66,12 @@ const AccountModal = ({
           callBack(values);
         }}
       >
-        {({
-          values,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          setFieldValue,
-        }) => (
+        {({ values, handleChange, handleBlur, handleSubmit }) => (
           <div className={styles.bloc}>
             <Form onSubmit={handleSubmit}>
               <div className={styles.header}>
                 <span>Profile information</span>
-                <button
-                  type="submit"
-                  onClick={() => {
-                    localStorage.removeItem(authTokenKey);
-                    push(routes.signUp_page);
-                  }}
-                >
+                <button type="submit" onClick={logout}>
                   Log out
                 </button>
               </div>
@@ -87,12 +80,6 @@ const AccountModal = ({
                   id="avatar"
                   name="avatar"
                   type="file"
-                  onChange={(event) => {
-                    setFieldValue(
-                      'file',
-                      event.currentTarget.files ? [0] : null
-                    );
-                  }}
                   className={styles.fileInput}
                 />
                 <div className={styles.name}>
