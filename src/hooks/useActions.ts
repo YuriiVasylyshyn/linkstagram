@@ -7,6 +7,7 @@ import * as PostsActionCreator from '../store/posts/action-creators/post';
 import * as CommentsActionCreator from '../store/comments/action-creators/comments';
 import * as AccountActionCreator from '../store/account/action-creators/account';
 import * as EditAccountActionCreator from '../store/account/action-creators/edit-account';
+import * as LeaveCommentActionCreator from '../store/comments/action-creators/leave_comment';
 
 export const UserAction = () => {
   const dispatch = useDispatch();
@@ -36,4 +37,9 @@ export const AccountAction = () => {
 export const EditAccountAction = () => {
   const dispatch = useDispatch();
   return bindActionCreators(EditAccountActionCreator, dispatch);
+};
+
+export const LeaveCommentAction = () => {
+  const dispatch = useDispatch();
+  return bindActionCreators(LeaveCommentActionCreator, dispatch);
 };

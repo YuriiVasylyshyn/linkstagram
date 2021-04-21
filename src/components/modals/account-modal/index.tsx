@@ -21,7 +21,6 @@ type AccountModalProps = {
   callBack: (values: {
     firstName: string;
     lastName: string;
-    file: File;
     jobTitle: string;
     description: string;
   }) => {};
@@ -54,14 +53,12 @@ const AccountModal = ({
         initialValues={{
           firstName: first_name ?? '',
           lastName: last_name ?? '',
-          file: File,
           jobTitle: job_title ?? '',
           description: description ?? '',
         }}
         validationSchema={EditProfileSchema}
         onSubmit={(values) => {
-          console.log(values.file);
-          // callBack(values);
+          callBack(values);
         }}
       >
         {({

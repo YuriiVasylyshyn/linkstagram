@@ -7,7 +7,6 @@ import showErrorToast from '../../../services/errors-handler';
 export const editAccount = (
   firstName: string,
   lastName: string,
-  profilePhoto: File,
   jobTitle: string,
   description: string
 ) => {
@@ -17,7 +16,6 @@ export const editAccount = (
       const response = await requests.editAccount(
         firstName,
         lastName,
-        profilePhoto,
         jobTitle,
         description
       );

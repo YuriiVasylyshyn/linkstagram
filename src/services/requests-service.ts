@@ -50,7 +50,6 @@ export const getAccount = () => {
 export const editAccount = (
   firstName: string,
   lastName: string,
-  file: File,
   jobTitle: string,
   description: string
 ) => {
@@ -58,15 +57,6 @@ export const editAccount = (
     account: {
       first_name: firstName,
       last_name: lastName,
-      profile_photo: {
-        id: file.text,
-        storage: 'cache',
-        metadata: {
-          size: file.size,
-          mime_type: 'image/jpeg',
-          filename: file.name,
-        },
-      },
       job_title: jobTitle,
       description: description,
     },

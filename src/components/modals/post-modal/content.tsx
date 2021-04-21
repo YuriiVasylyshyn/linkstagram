@@ -6,6 +6,8 @@ import isLikedIcon from '../../../assets/icons/isLiked-icon.svg';
 import CommentBloc from '../../comment-bloc/index';
 import { useState } from 'react';
 import Button from '../../button';
+import { LeaveCommentAction } from '../../../hooks/useActions';
+import { isAuthorized } from '../../../configs/api';
 
 type PostModalProps = {
   post: Post;
@@ -18,9 +20,11 @@ const PostModalContent = ({
   post,
   comments,
 }: PostModalProps): JSX.Element => {
-  const { likes_count, is_liked }: Post = post;
+  const { likes_count, is_liked, id }: Post = post;
   const { first_name, last_name, profile_photo_url }: Profile = post.author;
   const { url }: Photo = post.photos[0];
+
+  const { leaveComment } = LeaveCommentAction();
 
   const [comment, setComment] = useState('');
 
@@ -58,15 +62,22 @@ const PostModalContent = ({
           <img src={is_liked ? isLikedIcon : likeIcon} alt="like" />
           <span>{likes_count ?? 0}</span>
         </div>
-        <div className={styles.footer}>
-          <input
-            type="text"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Add a comment..."
-          />
-          <Button type="button" content="Post" className={styles.post} />
-        </div>
+        {isAuthorized() && (
+          <div className={styles.footer}>
+            <input
+              type="text"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Add a comment..."
+            />
+            <Button
+              type="button"
+              content="Post"
+              className={styles.post}
+              onClick={() => leaveComment(id, comment, comments)}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
