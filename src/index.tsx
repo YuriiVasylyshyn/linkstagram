@@ -4,19 +4,13 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-
-import { persistor, store } from './store/index';
-
-import CircularLoader from './components/circular-loader/index';
+import { store } from './store/index';
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={<CircularLoader />} persistor={persistor}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PersistGate>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

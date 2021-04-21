@@ -7,13 +7,15 @@ import MainPage from './pages/home-page/index';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { isAuthorized } from './configs/api';
+
 import * as routes from './configs/routes';
 
 const Router = () => (
   <>
     <Switch>
       <Route exact path={routes.initial_page}>
-        <Redirect to={routes.signUp_page} />
+        <Redirect to={isAuthorized() ? routes.home_page : routes.signUp_page} />
       </Route>
 
       <Route path={routes.login_page} component={LoginPage} />

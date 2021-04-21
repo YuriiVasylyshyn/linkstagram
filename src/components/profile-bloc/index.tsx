@@ -3,9 +3,10 @@ import Button from '../button/index';
 
 type ProfileBlocProps = {
   user: Profile;
+  openModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
+const ProfileBloc = ({ user, openModal }: ProfileBlocProps): JSX.Element => {
   const {
     profile_photo_url,
     followers,
@@ -30,7 +31,7 @@ const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
         </div>
       </div>
       <div className={styles.body}>
-        <span>{first_name + ' ' + last_name + '-' + job_title}</span>
+        <span>{first_name + ' ' + last_name + ' - ' + job_title}</span>
         <br />
         <span className={styles.description}>{description}</span>
       </div>
@@ -39,9 +40,7 @@ const ProfileBloc = ({ user }: ProfileBlocProps): JSX.Element => {
           content={'Edit profile'}
           type="button"
           className={styles.edit}
-          onClick={(e) => {
-            console.log(e);
-          }}
+          onClick={() => openModal(true)}
         ></Button>
         <Button
           content={'New post'}

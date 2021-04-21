@@ -4,6 +4,8 @@ import { AuthAction, AuthActionTypes } from '../types/auth';
 import * as requests from '../../../services/requests-service';
 import showErrorToast from '../../../services/errors-handler';
 
+import { authTokenKey } from '../../../configs/api';
+
 export const auth = (
   login: string,
   password: string,
@@ -21,8 +23,10 @@ export const auth = (
 
       const responseJson = await response;
 
-      if (responseJson.data.error) {
-        const error = responseJson.data.error;
+      if (responseJson.data['field-error']) {
+        const data: string = responseJson.data['field-error'][1];
+
+        const error: string = data.charAt(0).toUpperCase() + data.slice(1);
 
         showErrorToast(error);
 
@@ -32,6 +36,10 @@ export const auth = (
         });
       } else {
         const data: Success = responseJson.data;
+
+        const authToken: string = `Bearer ${responseJson.headers.authorization}`;
+
+        localStorage.setItem(authTokenKey, authToken);
 
         showErrorToast(data.success, 'success');
 
@@ -43,8 +51,6 @@ export const auth = (
         });
       }
     } catch (e) {
-      console.log(e);
-
       dispatch({
         type: AuthActionTypes.AUTH_ERROR,
         payload: 'Authentication error',

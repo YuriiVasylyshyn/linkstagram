@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { UserAction, PostsAction } from '../../hooks/useActions';
+import { UserAction, PostsAction, AccountAction } from '../../hooks/useActions';
 import { useTypesSelector } from '../../hooks/useTypedSelector';
 import HomeLayout from './content';
 
 import ScreenWrapper from '../../services/wrappers/screen-wrapper';
+import { isAuthorized } from '../../configs/api';
 
 const HomePage = (): JSX.Element => {
   const { profiles, loading, error } = useTypesSelector(
@@ -12,12 +13,16 @@ const HomePage = (): JSX.Element => {
 
   const postsState = useTypesSelector((state) => state.posts);
 
+  const accountState = useTypesSelector((state) => state.account);
+
   const { getUsers } = UserAction();
   const { getPosts } = PostsAction();
+  const { getAccount } = AccountAction();
 
   void useEffect(() => {
     getUsers();
     getPosts();
+    if (isAuthorized()) getAccount();
   }, []);
 
   return (
@@ -28,7 +33,7 @@ const HomePage = (): JSX.Element => {
         <HomeLayout
           users={profiles}
           posts={postsState.posts}
-          user={profiles[8]}
+          user={accountState.account}
         />
       }
     />

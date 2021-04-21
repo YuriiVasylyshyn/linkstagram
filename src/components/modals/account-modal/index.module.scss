@@ -1,0 +1,102 @@
+@import '/src/styles/colors.scss';
+
+.overlay {
+  background-color: rgba($color: $black, $alpha: 0.5);
+  position: fixed;
+  inset: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    background: $white;
+
+    border-radius: 2rem;
+    outline: none;
+
+    .bloc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 3rem;
+      border-radius: 32px;
+
+      form {
+        width: max-content;
+
+        .header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          margin-bottom: 2rem;
+
+          font-size: 2rem;
+          font-weight: 600;
+
+          align-items: center;
+
+          button {
+            height: min-content;
+            outline: none;
+
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            color: $red;
+
+            margin-left: 5rem;
+          }
+        }
+
+        .firstPart {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .fileInput {
+            width: 148px;
+
+            margin-bottom: 1rem;
+
+            border: 1px solid $gray;
+            box-sizing: border-box;
+            border-radius: 8px;
+
+            margin-right: 2rem;
+
+            outline: none;
+          }
+
+          .name {
+            display: flex;
+            flex: 2;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+
+        .secondPart {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .footer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .cancelButton {
+            background-color: transparent;
+            color: $black;
+
+            margin-right: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
